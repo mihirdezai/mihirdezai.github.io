@@ -20,6 +20,22 @@ const { title } = Astro.props;
 <style is:global>
   :root {
     color-scheme: light dark;
+    font-family: system-ui, sans-serif;
+  }
+
+  @supports (font-variation-settings: normal) {
+    :root {
+      font-family: "InterVariable", sans-serif;
+      font-optical-sizing: auto;
+    }
+  }
+
+  @font-face {
+    font-family: InterVariable;
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("/fonts/InterVariable.woff2") format("woff2");
   }
 
   @media (prefers-color-scheme: light) {
@@ -34,9 +50,5 @@ const { title } = Astro.props;
       color: #e4e4e7;
       background-color: #18181b;
     }
-  }
-
-  html {
-    font-family: system-ui, sans-serif;
   }
 </style>
